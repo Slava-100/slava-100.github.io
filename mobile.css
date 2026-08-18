@@ -1,0 +1,80 @@
+/* Responsive safeguards for narrow Safari and in-app browser viewports. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
+.hero-grid > *,
+.intro-grid > *,
+.hobbies-grid > *,
+.work-grid > *,
+.taste-grid > *,
+.mood-grid > *,
+.lottery-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 13vw, 60px);
+    line-height: 0.9;
+    overflow-wrap: anywhere;
+  }
+
+  .lottery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lottery-grid > *,
+  .lottery-answer,
+  .mood-grid > * {
+    max-width: 100%;
+  }
+
+  .intro-grid h2,
+  .section-heading h2,
+  .facts-heading h2,
+  .taste-card h2,
+  .mood-section h2,
+  .lottery-section h2,
+  footer h2,
+  .work-quote,
+  .fact h3,
+  .section-kicker,
+  .hero-intro,
+  .lottery-answer p,
+  .mood-section div > p:last-child {
+    overflow-wrap: anywhere;
+    word-break: normal;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .lottery-answer h2 {
+    font-size: clamp(30px, 9vw, 40px);
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+  }
+
+  .lottery-answer p,
+  .mood-section div > p:last-child {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+}
